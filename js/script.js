@@ -15,6 +15,14 @@ project 1 - A Random Quote Generator
   Use console.log() to log your array of quotes to the console.
 ***/
 
+/***
+  Create an array [] named 'quotes' and 7 objects {},.
+  
+***/
+
+
+
+
 const quotes = [
   {
     quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
@@ -87,20 +95,22 @@ const printQuote = () => {
   currentQuote = getRandomQuote();
   let message = '';
   message = `<p class="quote"> ${currentQuote.quote} </p>`
-  message += `<p class="source"> ${currentQuote.source} </p>`
+  message += `<p class="source"> ${currentQuote.source}`
 
-  if (getRandomQuote().citation) {
-    message += `<p class="citation"> ${currentQuote.citation} </p>`
+  if (currentQuote.hasOwnProperty('citation')) {
+    message += `<span class="citation"> ${currentQuote.citation} </span>`
   }
 
-  if (getRandomQuote().year) {
-    message += `<p class="year"> ${currentQuote.year} </p>`
+  if (currentQuote.hasOwnProperty('year')) {
+    message += `<span class="year"> ${currentQuote.year} </span>`
   }
+
+  message += `</p>`
+
+  quoteBox = document.getElementById('quote-box')
+
+  return quoteBox.innerHTML = message;
 }
-
-// <span class="citation"> [citation here] </span>
-// <span class="year"> [year here] </span>
-// </p>
 
 
 
