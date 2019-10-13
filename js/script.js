@@ -80,7 +80,6 @@ const currentColor = () => {
 
 
 const printQuote = () => {
-  // calling the changeQuote function on 25 seconds interval
   let currentQuote = getRandomQuote();
   let message = '';
   message = `<p class="quote"> ${currentQuote.quote} </p>`
@@ -110,7 +109,7 @@ const printQuote = () => {
 
   return quoteBox.innerHTML = message;
 }
-
+// randomly run printQuote every every 25 seconds as soon as the page loads
 setInterval(printQuote, 25000)
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
