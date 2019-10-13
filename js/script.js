@@ -63,7 +63,7 @@ console.log(quotes)
 const getRandomQuote = () => {
   let NumOfQuotes = quotes.length;
   // get random number from 0 to the length of the quotes array
-  let randomQuoteIndex = Math.floor(Math.random() * NumOfQuotes)
+  let randomQuoteIndex = Math.floor(Math.random() * (NumOfQuotes + 1))
   //  use the random number to return a quote based on array index
   return quotes[randomQuoteIndex]
 }
