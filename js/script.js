@@ -87,17 +87,17 @@ const printQuote = () => {
 
 // if currentQuote has a "citation" property, add citation property value to message variable
 // hasOwnproperty function is from MDN. i was looking for a way to check if the currentQuote has that particular property
-  if (currentQuote.hasOwnProperty('citation')) {
+  if (currentQuote.citation) {
     message += `<span class="citation"> ${currentQuote.citation} </span>`
   }
 
 // if currentQuote has a "year" property, add year property value to message variable
-  if (currentQuote.hasOwnProperty('year')) {
+  if (currentQuote.year) {
     message += `<span class="year"> ${currentQuote.year} </span>`
   }
 
 // if currentQuote has a "year" property, add year property value to message variable
-  if (currentQuote.hasOwnProperty('tag')) {
+  if (currentQuote.tag) {
     message += `<span class="year"> ${currentQuote.tag} </span>`
   }
 
