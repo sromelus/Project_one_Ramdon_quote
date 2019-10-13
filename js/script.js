@@ -80,9 +80,8 @@ const currentColor = () => {
 
 
 const printQuote = () => {
-  // assign the return value of getRandomQuote to a variable
+  // calling the changeQuote function on 25 seconds interval
   setInterval(changeQuote, 25000)
-
 }
 
 const changeQuote = () => {
