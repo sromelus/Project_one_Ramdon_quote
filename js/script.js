@@ -78,9 +78,6 @@ const currentColor = () => {
   return color;
 }
 
-// const refresh = () => {
-//   nIntervId = setInterval(flashText, 1000);
-// }
 
 const printQuote = () => {
   // assign the return value of getRandomQuote to a variable
