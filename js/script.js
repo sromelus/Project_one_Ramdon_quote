@@ -3,59 +3,53 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
 /***
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
+  Create an array [] named 'quotes' and add 7 objects within it.
+  All 7 objects will have a "quote" and "source" propterty
+  and at least one object will have an additonal "citation" and "year" property.
 ***/
-
-/***
-  Create an array [] named 'quotes' and 7 objects {},.
-  
-***/
-
-
-
 
 const quotes = [
   {
     quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-    source: "Nelson Mandela"
+    source: "Nelson Mandela",
+    tag: "Politics"
   },
   {
     quote: "The Worst Sin Towards Our Fellow Creatures Is Not To Hate Them, But To Be Indifferent To Them",
     source: "George Bernard Shaw",
     citation: "Play",
-    year: 1897
+    year: 1897,
+    tag: "Politics"
   },
   {
     quote: "Chess: As Elaborate a Waste of Human Intelligence as You Could Find Anywhere Outside an Advertising Agency",
     source: "Raymond Chandler",
     citation: "Novel",
-    year: 1953
+    year: 1953,
+    tag: "Politics"
+
   },
   {
     quote: "Humans need two years to learn to speak and sixty years to learn to shut up.",
     source: "Ernest Hemingway",
-    year: 1909
+    year: 1909,
+    tag: "Humor"
   },
   {
     quote: "The way to get started is to quit talking and begin doing.",
-    source: "Walt Disney"
+    source: "Walt Disney",
+    tag: "Business"
   },
   {
     quote: "If life were predictable it would cease to be life, and be without flavor.",
-    source: "Eleanor Roosevelt"
+    source: "Eleanor Roosevelt",
+    tag: "Life"
   },
   {
     quote: "Life is what happens when you're busy making other plans.",
-    source: "John Lennon"
+    source: "John Lennon",
+    tag: "Life"
   }
 ]
 
@@ -63,65 +57,68 @@ console.log(quotes)
 
 
 /***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number
-   - Cse the random number to `return` a random quote object from the `quotes` array.
+  Create a `getRandomQuote` function that returns a random quote out of all the 7th quotes object in the array.
 ***/
 
 const getRandomQuote = () => {
-  NumOfQuotes = quotes.length;
-  randomQuoteIndex = Math.floor(Math.random() * NumOfQuotes)
+  let NumOfQuotes = quotes.length;
+  // get random number from 0 to the length of the quotes array
+  let randomQuoteIndex = Math.floor(Math.random() * NumOfQuotes)
+  //  use the random number to return a quote based on array index
   return quotes[randomQuoteIndex]
 }
 
 console.log(getRandomQuote());
 
+const currentColor = () => {
+  let blue = Math.floor(Math.random() * 256);
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let color = `rgb(${blue},${red},${green})`;
+  return color;
+}
 
-
-/***3
-  Create the `printQuote` function to:
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string.
-***/
+// const refresh = () => {
+//   nIntervId = setInterval(flashText, 1000);
+// }
 
 const printQuote = () => {
-  currentQuote = getRandomQuote();
+  // assign the return value of getRandomQuote to a variable
+  setInterval(changeQuote, 25000)
+
+}
+
+const changeQuote = () => {
+  let currentQuote = getRandomQuote();
   let message = '';
   message = `<p class="quote"> ${currentQuote.quote} </p>`
   message += `<p class="source"> ${currentQuote.source}`
 
+// if currentQuote has a "citation" property, add citation property value to message variable
+// hasOwnproperty function is from MDN. i was looking for a way to check if the currentQuote has that particular property
   if (currentQuote.hasOwnProperty('citation')) {
     message += `<span class="citation"> ${currentQuote.citation} </span>`
   }
 
+// if currentQuote has a "year" property, add year property value to message variable
   if (currentQuote.hasOwnProperty('year')) {
     message += `<span class="year"> ${currentQuote.year} </span>`
   }
 
+// if currentQuote has a "year" property, add year property value to message variable
+  if (currentQuote.hasOwnProperty('tag')) {
+    message += `<span class="year"> ${currentQuote.tag} </span>`
+  }
+
   message += `</p>`
 
-  quoteBox = document.getElementById('quote-box')
+  let  quoteBox = document.getElementById('quote-box')
+
+  document.body.style.backgroundColor = currentColor();
+
 
   return quoteBox.innerHTML = message;
 }
 
 
-
-/***
-  When the "Show another quote" button is clicked, the event listener
-  below will be triggered, and it will call, or "invoke", the `printQuote`
-  function. So do not make any changes to the line of code below this
-  comment.
-***/
-
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
