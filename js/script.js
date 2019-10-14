@@ -103,13 +103,20 @@ const printQuote = () => {
 
   message += `</p>`
 
-  let  quoteBox = document.getElementById('quote-box')
+  let quoteBox = document.getElementById('quote-box')
 
   document.body.style.backgroundColor = currentColor();
 
   return quoteBox.innerHTML = message;
 }
+
 // randomly run printQuote every every 25 seconds as soon as the page loads
-setInterval(printQuote, 25000)
+let intervalId = setInterval(printQuote, 2000)
+
+let pauseQuoteM = () => {
+  clearInterval(intervalId)
+}
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+document.getElementById('pauseQuote').addEventListener("click", pauseQuoteM, false);
