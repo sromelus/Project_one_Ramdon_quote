@@ -50,6 +50,10 @@ const quotes = [
     quote: "Life is what happens when you're busy making other plans.",
     source: "John Lennon",
     tag: "Life"
+  },
+  {
+    quote: 'Be yourself; everyone else is already taken.',
+    source: "Marilyn Monroe"
   }
 ]
 
