@@ -77,7 +77,7 @@ body {
   display: inline-block;
   left: 40%;
   margin-left: -6em;
-  bottom: 150px;
+  bottom: 120px;
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
@@ -92,7 +92,7 @@ body {
   display: inline-block;
   left: 60%;
   margin-left: -6em;
-  bottom: 150px;
+  bottom: 120px;
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
@@ -116,6 +116,21 @@ body {
 
 #pauseQuote:focus {
   outline: none;
+}
+
+#inputQuote {
+  position: fixed;
+  width: 12em;
+  display: inline-block;
+  left: 60%;
+  margin-left: -13em;
+  bottom: 200px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #36b55c;
+  padding: 15px 0;
+  transition: .5s ;
 }
 
 @media (min-width: 420px) {

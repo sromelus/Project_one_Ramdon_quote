@@ -57,9 +57,6 @@ const quotes = [
   }
 ]
 
-console.log(quotes)
-
-
 /***
   Create a `getRandomQuote` function that returns a random quote out of all the 7th quotes object in the array.
 ***/
@@ -72,8 +69,6 @@ const getRandomQuote = () => {
   return quotes[randomQuoteIndex]
 }
 
-console.log(getRandomQuote());
-
 const currentColor = () => {
   let blue = Math.floor(Math.random() * 256);
   let red = Math.floor(Math.random() * 256);
@@ -81,6 +76,7 @@ const currentColor = () => {
   let color = `rgb(${blue},${red},${green})`;
   return color;
 }
+
 
 
 const printQuote = () => {
@@ -124,3 +120,10 @@ let pauseQuoteM = () => {
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 document.getElementById('pauseQuote').addEventListener("click", pauseQuoteM, false);
+
+const input = document.createElement('input');
+input.type = 'text';
+input.style.backgroundColor = 'black';
+input.id = 'inputQuote'
+const container = document.querySelector('.container');
+container.appendChild(input);
