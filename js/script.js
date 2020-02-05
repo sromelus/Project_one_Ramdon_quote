@@ -120,10 +120,3 @@ let pauseQuoteM = () => {
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 document.getElementById('pauseQuote').addEventListener("click", pauseQuoteM, false);
-
-const input = document.createElement('input');
-input.type = 'text';
-input.style.backgroundColor = 'black';
-input.id = 'inputQuote'
-const container = document.querySelector('.container');
-container.appendChild(input);
